@@ -55,7 +55,7 @@ const GunlukSayfası = () => {
 
       if (sonuc === "Günlük Başarıyla Kaydedildi") {
         Alert.alert("Başarılı", "Günün notu veritabanına mühürlendi! ");
-        setIcerik(""); // Başarılıysa içini boşalt
+        setIcerik(""); 
       } else {
         Alert.alert("Hata", "Not kaydedilemedi: " + sonuc);
       }
