@@ -22,7 +22,7 @@ const GunlukSayfası = () => {
       return;
     }
 
-    // 1. Başlık için tarihi hazırlıyoruz (Senin formatın)
+    
     const simdikiZaman = new Date();
     const formatliTarih = simdikiZaman.toLocaleDateString('tr-TR', {
       day: 'numeric',
@@ -32,7 +32,7 @@ const GunlukSayfası = () => {
     });
 
     try {
-      // 2. Giriş yaparken sakladığımız ID'yi hafızadan çekiyoruz
+     
       const kullanici_id = await AsyncStorage.getItem('@kullanici_id');
 
       if (!kullanici_id) {
@@ -40,7 +40,7 @@ const GunlukSayfası = () => {
         return;
       }
 
-      // 3. Backend'deki yeni endpoint'e veriyi atıyoruz
+     
       const response = await fetch('http://192.168.0.19:3000/gunluk-ekle', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -54,7 +54,7 @@ const GunlukSayfası = () => {
       const sonuc = await response.text();
 
       if (sonuc === "Günlük Başarıyla Kaydedildi") {
-        Alert.alert("Başarılı", "Günün notu veritabanına mühürlendi! ✍️");
+        Alert.alert("Başarılı", "Günün notu veritabanına mühürlendi! ");
         setIcerik(""); // Başarılıysa içini boşalt
       } else {
         Alert.alert("Hata", "Not kaydedilemedi: " + sonuc);
